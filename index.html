@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cipher Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Cipher Tool</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Cipher Algorithm</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Caesar Cipher</td>
+            <td><button onclick="selectCipher('caesar')">Select</button></td>
+        </tr>
+        <tr>
+            <td>Rail Fence Cipher</td>
+            <td><button onclick="selectCipher('railfence')">Select</button></td>
+        </tr>
+        <tr>
+            <td>Playfair Cipher</td>
+            <td><button onclick="selectCipher('playfair')">Select</button></td>
+        </tr>
+        <tr>
+            <td>Hill Cipher</td>
+            <td><button onclick="selectCipher('hill')">Select</button></td>
+        </tr>
+        <tr>
+            <td>Polyalphabetic Cipher</td>
+            <td><button onclick="selectCipher('poly')">Select</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="cipherOptions" style="display:none;">
+    <h2 id="cipherName"></h2>
+
+    <label for="inputText">Input Text:</label>
+    <input type="text" id="inputText" placeholder="Enter your message" />
+
+    <label for="key">Key:</label>
+    <input type="text" id="key" placeholder="Enter key value" />
+
+    <label for="rails" style="display:none;">Number of Rails:</label> <!-- Hidden by default -->
+    <input type="number" id="rails" min="2" value="3" style="display:none;" /> <!-- Hidden by default -->
+
+    <div class="radio-group">
+        <label><input type="radio" name="action" value="encrypt" checked> Encrypt</label>
+        <label><input type="radio" name="action" value="decrypt"> Decrypt</label>
+    </div>
+
+    <button onclick="processCipher()">Submit</button>
+
+    <h3>Result:</h3>
+    <div id="result"></div>
+
+    <div id="description"></div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
